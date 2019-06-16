@@ -14,19 +14,23 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import org.empresa.pe.modelo.Anbiente;
-
+import org.empresa.pe.modelo.Piso;
+import org.empresa.pe.modelo.luminaria;
+import org.empresa.pe.servicios.luminariaService;
 /**
  * REST Web Service
  *
  * @author FCV
  */
-@Path("anbiente")
-public class GenericResource {
+@Path("luminaria")
+public class luminariaRecurso {
+    luminariaService lumservice = new luminariaService();
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAnbientes() {
-        return Response.ok().build();
+    public List<luminaria> getJson() {
+       
+        return lumservice.listaLuminarias();
     }
+
+   
 }

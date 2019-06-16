@@ -31,7 +31,27 @@ public class AnbienteServicio {
                 cst.setInt(1, idAnbiente);
                 ResultSet rs = cst.executeQuery();
                 while(rs.next()){
-                    Anbiente nAnbiente = new Anbiente();
+                    Anbiente nAnbiente = new Anbiente(rs.getInt(2),rs.getInt(3),rs.getString(1));
+                    listAnbienteEnPiso.add(nAnbiente);
+                }
+            }catch( SQLException e){
+                msg = e.getErrorCode()+"/"+e.getSQLState()+"/"+e.getMessage();
+                System.out.println(msg);
+            }
+        return listAnbienteEnPiso;
+    }
+    
+    
+    public List<Anbiente> listaAmbientes(){
+        List<Anbiente> listAnbienteEnPiso = new ArrayList<>();
+            if(!estadoConectado()){
+            conectar();
+            }
+            try{
+                CallableStatement  cst = cadenaConexion.prepareCall("{call lstAmbientes}");
+                ResultSet rs = cst.executeQuery();
+                while(rs.next()){
+                    Anbiente nAnbiente = new Anbiente(rs.getInt(2),rs.getInt(3),rs.getString(1));
                     listAnbienteEnPiso.add(nAnbiente);
                 }
             }catch( SQLException e){
