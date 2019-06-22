@@ -39,10 +39,9 @@ public class SensorRecurso {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<sensor> getJson() {
+    public List<sensor> getSensores() {
        return servicioSensor.lstSensor();
     }
-
     /**
      * PUT method for updating or creating an instance of SensorRecurso
      * @param content representation for the resource
