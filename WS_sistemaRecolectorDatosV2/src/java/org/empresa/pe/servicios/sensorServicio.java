@@ -34,7 +34,7 @@ public class sensorServicio {
                
                sen.setIdsensor(rs.getInt(1));
                sen.setNombreSensor(rs.getString(2));
-               sen.setDescripcion(rs.getString(3));
+               sen.setAbreviasion(rs.getString(3));
                sen.setUrlImg(rs.getString(4));
                
                lstsensor.add(sen);
