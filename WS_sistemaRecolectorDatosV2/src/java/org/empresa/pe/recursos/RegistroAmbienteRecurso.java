@@ -21,8 +21,13 @@ import com.google.gson.JsonElement;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.core.Response;
+import org.empresa.pe.modelo.User;
 import org.empresa.pe.modelo.medicion;
+import org.empresa.pe.modelo.respuesta;
 import org.empresa.pe.servicios.registroDatosAmbienteServicio;
 
 /**
@@ -31,8 +36,6 @@ import org.empresa.pe.servicios.registroDatosAmbienteServicio;
  * @author FCV
  */
 @Path("registroAmbiente")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
 public class RegistroAmbienteRecurso {
     registroDatosAmbienteServicio rgtambiente = new registroDatosAmbienteServicio();
     @GET
@@ -42,15 +45,22 @@ public class RegistroAmbienteRecurso {
     }
     
     @POST
-    public String AddRegistroAmbiente( String RegistroDatosAmbiente){
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public respuesta AddRegistroAmbiente( String RegistroDatosAmbiente){
+         respuesta rpta = new respuesta();
         if(RegistroDatosAmbiente.equals("") ||RegistroDatosAmbiente == null ){
-            return "debe enviar  un json";
+           rpta.setEstado("400");
+           rpta.setRespuesta("debe ingresar  un json");
         }else{
             Gson jsonRegistro = new Gson();
             registroAmbiente rAmbiente = new registroAmbiente();
             rAmbiente = jsonRegistro.fromJson(RegistroDatosAmbiente,registroAmbiente.class );
-            return rgtambiente.RegistraDatosAmbiente(rAmbiente);
+            rpta.setEstado("200");
+           rpta.setRespuesta(rgtambiente.RegistraDatosAmbiente(rAmbiente));   
         }
+        
+        return rpta;
     }
     @PUT
     public void putJson(String content) {
