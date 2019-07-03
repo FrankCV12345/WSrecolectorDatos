@@ -28,7 +28,11 @@ public class luxometroServicio {
             CallableStatement cst = cadenaConexion.prepareCall("{call lstLuxometros}");
             ResultSet rs = cst.executeQuery();
             while(rs.next()){
-                lstlux.add(new luxometro(rs.getInt(1),rs.getString(2),rs.getString(3)));
+                luxometro lux = new luxometro();
+                lux.setIdluxometro(rs.getInt(1));
+                lux.setNombreluxometro(rs.getString(2));
+                lux.setUrlimgLuxometro(rs.getString(3));
+                lstlux.add(lux);
             }
         }catch(SQLException e){
             msg = e.getMessage();

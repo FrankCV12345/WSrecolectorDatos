@@ -30,6 +30,7 @@ public class lstaPisosDesaprobadosServicio {
                 ambNoAp.setIdAmbiente(rs.getInt(2));
                 ambNoAp.setNombreAmbiente(rs.getString(3));
                 ambNoAp.setNombrePiso(rs.getString(4));
+                ambNoAp.setPromedio(rs.getDouble(5));
                 lsta.add(ambNoAp);
             }
         }catch(SQLException e){

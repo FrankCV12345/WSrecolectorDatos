@@ -12,6 +12,15 @@ package org.empresa.pe.modelo;
 public class AmbienteNoAprobado {
     private  int idAmbiente , idRegistroAmbiente;
     private String nombreAmbiente , nombrePiso;
+    private double promedio;
+
+    public double getPromedio() {
+        return promedio;
+    }
+
+    public void setPromedio(double promedio) {
+        this.promedio = promedio;
+    }
 
     public AmbienteNoAprobado() {
     }

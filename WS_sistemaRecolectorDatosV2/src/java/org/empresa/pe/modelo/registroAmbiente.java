@@ -12,7 +12,7 @@ import java.util.List;
  * @author FCV
  */
 public class registroAmbiente {
-   private int idAmbiente ,idUus;
+   private int idAmbiente ,idUus,idLuxometro;
    private String fecha;
    private Double alturaMedicion;
    private List<medicion> lstaMediciones ;
@@ -21,6 +21,15 @@ public class registroAmbiente {
 
     public registroAmbiente() {
     }
+
+    public int getIdLuxometro() {
+        return idLuxometro;
+    }
+
+    public void setIdLuxometro(int idLuxometro) {
+        this.idLuxometro = idLuxometro;
+    }
+    
     public int getIdAmbiente() {
         return idAmbiente;
     }

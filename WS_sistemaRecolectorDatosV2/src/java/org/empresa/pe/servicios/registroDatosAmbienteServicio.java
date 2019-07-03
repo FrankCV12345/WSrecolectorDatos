@@ -31,14 +31,14 @@ public class registroDatosAmbienteServicio {
             List<IntegerConPosicion> integers = new ArrayList<>();
             integers.add( new IntegerConPosicion(rda.getIdAmbiente(),2));
             integers.add(new IntegerConPosicion(rda.getIdUus(),4));
-            
+            integers.add(new IntegerConPosicion(rda.getIdLuxometro(),5));
             List<StringConPosicion> Strings = new ArrayList<>();
             Strings.add( new StringConPosicion(rda.getFecha(),1) );
             
             List<DoubleConPosicion> doubles = new ArrayList<>();
             doubles.add( new DoubleConPosicion(rda.getAlturaMedicion(),3) );
             
-            ResultSet rs = llamaCallable("registDatosAmbiente",4,integers,Strings,null,doubles);
+            ResultSet rs = llamaCallable("registDatosAmbiente",5,integers,Strings,null,doubles);
             while(rs.next()){
                   idRegistro = Integer.parseInt(rs.getString(1));
             }

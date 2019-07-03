@@ -3,15 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/recursos/PisoRecurso.java</file>
             <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/modelo/sensor.java</file>
+            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/recursos/PisoRecurso.java</file>
             <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/recursos/UserRecurso.java</file>
-            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/recursos/relacionPiosAmbiente.java</file>
-            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/servicios/sensorServicio.java</file>
-            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/modelo/Piso.java</file>
-            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/modelo/luminaria.java</file>
+            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/recursos/SensorRecurso.java</file>
+            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/servicios/DicionarioService.java</file>
+            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/web/index.html</file>
             <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/recursos/RegistroAmbienteRecurso.java</file>
+            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/MisRecursos/llamaCallable.java</file>
+            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/recursos/BuscaDetalles.java</file>
             <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/modelo/registroAmbiente.java</file>
+            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/servicios/registroDatosAmbienteServicio.java</file>
+            <file>file:/C:/Users/FCV/Desktop/WSsistemaRecolectorDatosV2/WS_sistemaRecolectorDatosV2/src/java/org/empresa/pe/servicios/UserServicio.java</file>
         </group>
     </open-files>
 </project-private>

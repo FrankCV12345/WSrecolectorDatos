@@ -13,11 +13,6 @@ public class luxometro {
    private int idluxometro;
    private String nombreluxometro, urlimgLuxometro;
 
-    public luxometro(int idluxometro, String nombreluxometro, String urlimgLuxometro) {
-        this.idluxometro = idluxometro;
-        this.nombreluxometro = nombreluxometro;
-        this.urlimgLuxometro = urlimgLuxometro;
-    }
 
     public luxometro() {
     }

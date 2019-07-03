@@ -24,7 +24,7 @@ public class connecion_bd {
     public static String conectar(){
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            cadenaConexion = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-EP8TESE:1433;databaseName=bd_srd;user=frank;password=123456;");
+            cadenaConexion = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-EP8TESE:1433;databaseName=bd_srd;user=frank;password=entrada38;");
             msg = "conectado";
         }catch(Exception e){
             msg = e.getMessage();

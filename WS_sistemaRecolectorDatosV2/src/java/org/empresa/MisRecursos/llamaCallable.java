@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import static org.empresa.pe.dao.connecion_bd.cadenaConexion;
+import static org.empresa.pe.dao.connecion_bd.conectar;
+import static org.empresa.pe.dao.connecion_bd.estadoConectado;
 
 /**
  *
@@ -17,6 +19,9 @@ import static org.empresa.pe.dao.connecion_bd.cadenaConexion;
  */
 public class llamaCallable {
    public ResultSet llamaCallableConRespuesta(String procedure,int cantidadParametros, List<IntegerConPosicion> lstInt, List<StringConPosicion> lstString,List<BooleanConPisicion> lstboolean,List<DoubleConPosicion> lstDouble) throws SQLException{
+       if(!estadoConectado()){
+            conectar();
+        }
        String cadenaProcedure = "";
         if(cantidadParametros > 0){   
             String paramSimbolo ="";
