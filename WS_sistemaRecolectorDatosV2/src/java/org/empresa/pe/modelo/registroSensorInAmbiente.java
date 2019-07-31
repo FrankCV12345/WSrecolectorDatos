@@ -10,10 +10,26 @@ package org.empresa.pe.modelo;
  * @author FCV
  */
 public class registroSensorInAmbiente {
-    private int idSensor,cantidad;
+    private int idSensor,cantidad,idRegSensorInAmbiente,idRegistro;
     private boolean estado;
 
     public registroSensorInAmbiente() {
+    }
+
+    public int getIdRegSensorInAmbiente() {
+        return idRegSensorInAmbiente;
+    }
+
+    public void setIdRegSensorInAmbiente(int idRegSensorInAmbiente) {
+        this.idRegSensorInAmbiente = idRegSensorInAmbiente;
+    }
+
+    public int getIdRegistro() {
+        return idRegistro;
+    }
+
+    public void setIdRegistro(int idRegistro) {
+        this.idRegistro = idRegistro;
     }
     
     public int getIdSensor() {

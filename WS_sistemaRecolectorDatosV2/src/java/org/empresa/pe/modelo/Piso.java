@@ -14,11 +14,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Piso {
  private String nombrePiso;
- private int idPiso;
+ private int idPiso,idUsu;
 
-    public Piso(String nombrePiso, int idPiso) {
+    public int getIdUsu() {
+        return idUsu;
+    }
+
+    public void setIdUsu(int idUsu) {
+        this.idUsu = idUsu;
+    }
+
+    public Piso(String nombrePiso, int idUsu) {
         this.nombrePiso = nombrePiso;
-        this.idPiso = idPiso;
+        this.idUsu = idUsu;
     }
 
     public Piso() {

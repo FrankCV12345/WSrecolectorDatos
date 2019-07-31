@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import org.empresa.MisRecursos.llamaCallable;
 import org.empresa.pe.modelo.registroAmbiente;
 import static org.empresa.pe.dao.connecion_bd.*;
 import org.empresa.pe.modelo.medicion;
@@ -90,6 +91,102 @@ public class registroDatosAmbienteServicio {
             System.out.println(e.getMessage());
             return  rpta = e.getMessage();
         }
+    }
+    
+    public registroAmbiente BuscaAnbiente(int idRegistro) {
+        registroAmbiente rgA = new registroAmbiente();
+        llamaCallable callable = new llamaCallable();
+        List<org.empresa.MisRecursos.IntegerConPosicion> lstInt = new ArrayList<>();
+        lstInt.add( new org.empresa.MisRecursos.IntegerConPosicion(idRegistro,1));
+        try{     
+            ResultSet rs = callable.llamaCallableConRespuesta(
+                    "buscaRregistroAmbiente", 1, lstInt, null, null, null
+            );            
+            if(rs.next()){
+                rgA.setIdRegistro(rs.getInt(1));
+                rgA.setFecha(rs.getString(2));
+                rgA.setIdAmbiente(rs.getInt(3));
+                rgA.setIdUus(rs.getInt(4));
+                rgA.setEstado(rs.getBoolean(6));
+                rgA.setAlturaMedicion(rs.getDouble(7));
+                rgA.setIdLuxometro(rs.getInt(8));
+                
+                List<medicion>lstaMediciones = new ArrayList<>();
+                List<org.empresa.MisRecursos.IntegerConPosicion> lstIntMed = new ArrayList<>();
+                
+                lstIntMed.add(new org.empresa.MisRecursos.IntegerConPosicion(rgA.getIdRegistro(),1));
+                ResultSet rsMediciones = callable.llamaCallableConRespuesta(
+                        "buscaMedicionesPorRegistro", 1, lstIntMed, null, null, null
+                );
+                while(rsMediciones.next()){
+                    medicion med = new medicion();
+                    med.setIdMedicion(rsMediciones.getInt(1));
+                    med.setIdRegistro(rsMediciones.getInt(2));
+                    med.setNroMedicionl(rsMediciones.getInt(3));
+                    med.setResultado(rsMediciones.getDouble(4));
+                    med.setDescripcion(rsMediciones.getString(5));
+                    lstaMediciones.add(med);
+                    }
+                rgA.setLstaMediciones(lstaMediciones);
+                
+                
+                List<registroLuminariasInAmbiente> lstLuminarriasInAnbiente = new  ArrayList<>();
+                List<org.empresa.MisRecursos.IntegerConPosicion> lstIntLum = new ArrayList<>();
+                
+                lstIntLum.add(new org.empresa.MisRecursos.IntegerConPosicion(rgA.getIdRegistro(),1));
+                
+                ResultSet rsLum = callable.llamaCallableConRespuesta(
+                        "buscaLuminrasPorRegistro", 1, lstIntLum, null, null, null
+                );
+                
+                while(rsLum.next()){
+                    registroLuminariasInAmbiente rgLuminAnbiente = new registroLuminariasInAmbiente();
+                    rgLuminAnbiente.setIdRegistroLum(rsLum.getInt(1));
+                    rgLuminAnbiente.setIdregistroAnbien(rsLum.getInt(2));
+                    rgLuminAnbiente.setIdLum(rsLum.getInt(3));
+                    rgLuminAnbiente.setEstado(rsLum.getBoolean(4));
+                    rgLuminAnbiente.setCantidad(rsLum.getInt(5));
+                    lstLuminarriasInAnbiente.add(rgLuminAnbiente);
+                }
+                rgA.setLstregluminariasInAmbiente(lstLuminarriasInAnbiente);
+                
+                List<registroSensorInAmbiente> lstSensoresInAmbiente = new  ArrayList<>();
+                List<org.empresa.MisRecursos.IntegerConPosicion> lstIntSensor = new ArrayList<>();
+                
+                lstIntSensor.add(new org.empresa.MisRecursos.IntegerConPosicion(rgA.getIdRegistro(),1));
+                
+                ResultSet rsSensores = callable.llamaCallableConRespuesta(
+                        "buscaSensorPorRegistro", 1, lstIntSensor, null, null, null
+                );
+                
+                while(rsSensores.next()){
+                    registroSensorInAmbiente rgsan = new registroSensorInAmbiente();
+                    rgsan.setIdRegSensorInAmbiente(rsSensores.getInt(1));
+                    rgsan.setIdRegistro(rsSensores.getInt(2));
+                    rgsan.setIdSensor(rsSensores.getInt(3));
+                    rgsan.setEstado(rsSensores.getBoolean(4));
+                    rgsan.setCantidad(rsSensores.getInt(5));
+                    lstSensoresInAmbiente.add(rgsan);
+                }
+                rgA.setLstregistroSensorInAmbiente(lstSensoresInAmbiente);
+            }else{
+                rgA = null;
+            }
+        }catch( SQLException e){
+        }
+        return rgA;
+    }
+    public String ActualizaDatosAmbiente(registroAmbiente registroActulizar){
+        try{
+            List<IntegerConPosicion> lstInts = new ArrayList<>();
+            lstInts.add(new IntegerConPosicion(registroActulizar.getIdRegistro(),1));
+            llamaCallableSinRetorno("EliminaRegistroAnbiente",1,lstInts,null,null,null);
+        }catch(Exception E){
+        }
+        
+        String rpta =  RegistraDatosAmbiente(registroActulizar);
+        
+        return rpta;
     }
     private String compruebaEstadoAmbiente( double promedio  ,int nromediciones){
         promedio = promedio / nromediciones;
@@ -181,6 +278,7 @@ public class registroDatosAmbienteServicio {
          cst.execute();
         
     }
+    
     
     private class IntegerConPosicion{
         private int valor;

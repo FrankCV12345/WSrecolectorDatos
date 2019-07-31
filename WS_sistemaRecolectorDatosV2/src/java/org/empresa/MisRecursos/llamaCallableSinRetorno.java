@@ -9,6 +9,8 @@ import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.util.List;
 import static org.empresa.pe.dao.connecion_bd.cadenaConexion;
+import static org.empresa.pe.dao.connecion_bd.conectar;
+import static org.empresa.pe.dao.connecion_bd.estadoConectado;
 
 /**
  *
@@ -16,6 +18,9 @@ import static org.empresa.pe.dao.connecion_bd.cadenaConexion;
  */
 public class llamaCallableSinRetorno {
     public void llamaCallableSinRetornoNada(String procedure,int cantidadParametros, List<IntegerConPosicion> lstInt, List<StringConPosicion> lstString,List<BooleanConPisicion> lstboolean,List<DoubleConPosicion> lstDouble) throws SQLException{
+        if(!estadoConectado()){
+            conectar();
+        }
         String cadenaProcedure = "";
         if(cantidadParametros > 0){   
             String paramSimbolo ="";

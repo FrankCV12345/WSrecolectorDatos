@@ -10,10 +10,26 @@ package org.empresa.pe.modelo;
  * @author FCV
  */
 public class registroLuminariasInAmbiente {
-    private int idLum , cantidad;
+    private int idLum , cantidad,idRegistroLum,idregistroAnbien;
     private boolean estado;
 
     public registroLuminariasInAmbiente() {
+    }
+
+    public int getIdRegistroLum() {
+        return idRegistroLum;
+    }
+
+    public void setIdRegistroLum(int idRegistroLum) {
+        this.idRegistroLum = idRegistroLum;
+    }
+
+    public int getIdregistroAnbien() {
+        return idregistroAnbien;
+    }
+
+    public void setIdregistroAnbien(int idregistroAnbien) {
+        this.idregistroAnbien = idregistroAnbien;
     }
     
 

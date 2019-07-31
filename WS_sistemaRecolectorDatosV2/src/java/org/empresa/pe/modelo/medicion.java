@@ -10,7 +10,7 @@ package org.empresa.pe.modelo;
  * @author FCV
  */
 public class medicion {
-    private int nroMedicionl;
+    private int nroMedicionl,idMedicion,idRegistro;
     private Double resultado;
     private String descripcion;
 
@@ -22,6 +22,22 @@ public class medicion {
         this.resultado = resultado;
         this.descripcion = descripcion;
     }*/
+
+    public int getIdRegistro() {
+        return idRegistro;
+    }
+
+    public void setIdRegistro(int idRegistro) {
+        this.idRegistro = idRegistro;
+    }
+
+    public int getIdMedicion() {
+        return idMedicion;
+    }
+
+    public void setIdMedicion(int idMedicion) {
+        this.idMedicion = idMedicion;
+    }
 
     public int getNroMedicionl() {
         return nroMedicionl;

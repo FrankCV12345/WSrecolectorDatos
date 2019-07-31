@@ -12,16 +12,42 @@ import java.util.List;
  * @author FCV
  */
 public class registroAmbiente {
-   private int idAmbiente ,idUus,idLuxometro;
+   private int idAmbiente ,idUus,idLuxometro,idRegistro;
    private String fecha;
+   private boolean estado;
    private Double alturaMedicion;
    private List<medicion> lstaMediciones ;
    private List<registroLuminariasInAmbiente> lstregluminariasInAmbiente;
    private List<registroSensorInAmbiente> lstregistroSensorInAmbiente;
+   private int statuusHttp;
+
+    public int getStatuusHttp() {
+        return statuusHttp;
+    }
+
+    public void setStatuusHttp(int statuusHttp) {
+        this.statuusHttp = statuusHttp;
+    }
 
     public registroAmbiente() {
     }
 
+    public int getIdRegistro() {
+        return idRegistro;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public void setIdRegistro(int idRegistro) {
+        this.idRegistro = idRegistro;
+    }
+    
     public int getIdLuxometro() {
         return idLuxometro;
     }

@@ -4,13 +4,17 @@
  * and open the template in the editor.
  */
 package org.empresa.pe.recursos;
+import com.google.gson.Gson;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -33,9 +37,28 @@ public class UserRecurso {
        return servicioUser.listaUsers();
    }
     
-   @POST
+   /*@POST
    @Produces(MediaType.APPLICATION_JSON)
    public User Login(@QueryParam("nombre")String nombre,@QueryParam("password")String password){
       return servicioUser.LoginUser(nombre, password);
+   }*/
+   @POST
+   @Consumes(MediaType.APPLICATION_JSON)
+   public String AddUser(String jsnoNvoUSer){
+       Gson gson = new Gson();
+       if(jsnoNvoUSer == null){
+           return "DATOS VACIOS";
+       }else{
+        User user = gson.fromJson(jsnoNvoUSer, User.class);
+        
+        return servicioUser.registraUSer(user);
+       }
+       
+   }
+   @DELETE 
+   @Path("{id}")
+   @Consumes(MediaType.APPLICATION_JSON)
+   public String ddelteUser(@PathParam("id") int id){
+       return servicioUser.DeshabiltitaUSer(id);
    }
 }

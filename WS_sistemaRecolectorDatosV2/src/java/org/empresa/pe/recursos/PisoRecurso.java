@@ -5,6 +5,7 @@
  */
 package org.empresa.pe.recursos;
 
+import com.google.gson.Gson;
 import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -28,6 +29,7 @@ import org.empresa.pe.servicios.PisoServicio;
  */
 @Path("/piso")
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class PisoRecurso {
     private PisoServicio servicioPiso = new PisoServicio();
     @GET
@@ -35,6 +37,15 @@ public class PisoRecurso {
         List<Piso> pisos = servicioPiso.listaPisos();
         GenericEntity<List<Piso>> list = new GenericEntity<List<Piso>>(pisos) {};
         return Response.status(Response.Status.OK).entity(list).build();
+    }
+    
+    @POST
+    public Response IsnertPiso(String piso){
+        Piso p ;
+        Gson gson = new Gson();
+         p = gson.fromJson(piso,Piso.class);
+         servicioPiso.registra_piso(p);
+         return Response.status(Response.Status.CREATED).entity("REGISTRADO").build();
     }
     
     
